@@ -1,24 +1,19 @@
+import React from 'react';
 import './App.css';
 // import {User} from './User'
-import {Planets} from './Utils';
+import {useState}from "react";
 
 
 const App = () => {
-  const planets =[
-    {name: "Mars", isGasPlanet: false},
-    {name: "Earth", isGasPlanet: false},
-    {name: "Jupiter", isGasPlanet: true},
-    {name: "Venus", isGasPlanet: false},
-    {name: "Neptune", isGasPlanet: true},
-    {name: "Uranus", isGasPlanet: true}
-  ]
-
+  const [todoList,setTodoList] = useState([''])
+  const [newTask,setNewTask] = useState("")
+  
   return <div className='App'>
-          {planets.map(
-            (planet) =>{
-              return <Planets isGasPlanet={planet.isGasPlanet} name={planet.name} />;
-            }
-          )}
+          <div>
+            <input onChange={(event) =>{setNewTask(event.target.value)}}/>
+            <button onClick={() =>{setTodoList([...todoList,newTask])}}>Add Task</button>
+            {todoList.map((task,key)=>{ return <div key={key}>{task}</div>})}
+          </div>
          </div>
   
 };
