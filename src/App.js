@@ -6,21 +6,27 @@ import {useState}from "react";
 
 const App = () => {
   const [todoList,setTodoList] = useState([])
-  const [newTask,setNewTask] = useState("")
-  const deleteTask =(taskname,index) =>{
-    setTodoList(todoList.filter((task,key)=>{return (task,key) !== (taskname,index)}))
+  const [newTask,setNewTask] = useState({})
+  const addTask =()=>{
+
   }
+  const inputTask = (event) =>{
+    setNewTask(
+      id=1,
+      name=event.target.value
+    )
+  }
+
   
   return <div className='App'>
           <div>
-            <input onChange={(event) =>{setNewTask(event.target.value)}}/>
-            <button onClick={() =>{setTodoList([...todoList,newTask])}}>Add Task</button>
+            <input onChange={inputTask}/>
+            <button onClick={addTask}>Add Task</button>
 
-            {todoList.map((task,key)=>{ return <div key={key}>{task} <button onClick={()=>{deleteTask(task,key)}}>x</button></div>})}
+            {/* {todoList.map((task,key)=>{ return <div key={key}}>{task} <button onClick={() => {completeStatus()}}>complete</button><button onClick={()=>{deleteTask(task,key)}}>x</button></div>})} */}
           </div>
          </div>
-  
-};
+  };
 
 
 export default App
