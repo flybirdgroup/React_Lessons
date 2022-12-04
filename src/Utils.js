@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const TaskList = (props) =>{
     return (
@@ -8,3 +8,28 @@ export const TaskList = (props) =>{
     <button onClick={()=>props.completeTask(props.id)}>Completed</button>
     </div>)
  };
+
+
+export const Text = () =>{
+    const [text,setText] = useState("");
+
+    useEffect(()=>{
+        console.log("Component mounted")
+        return () => {
+            console.log("COMPONENT UNMOUNTED")
+        }
+    },[])
+
+    return (
+        <div>
+            <input 
+                onChange={
+                    (event) => {
+                        setText(event.target.value)
+                    }
+                }
+            />
+         <h1>{text}</h1>
+        </div>
+    )
+}
