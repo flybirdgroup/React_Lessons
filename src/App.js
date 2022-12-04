@@ -1,22 +1,29 @@
 import React from 'react';
 import './App.css';
 // import Axios from "axios"
-import {useState, createContext }from "react";
+import {createContext }from "react";
 import { Home } from './pages/Home';
 import { Contact } from './pages/Contact';
 import { Profile } from './pages/Profile';
 import { Navbar } from './pages/Navbar';
 import { BrowserRouter as Router,Route,Routes} from 'react-router-dom';
-// import {Text} from "./Utils"
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
 
 
 export const AppContext = createContext();
 
 const App = () => {
-  const [username, setUsername] = useState("Michael");
 
-  return (<div className='App'>
-          <AppContext.Provider value={{username, setUsername}}>
+  const client = new QueryClient({defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: true,
+    }
+  }});
+
+  return (
+  <div className='App'>
+
+          <QueryClientProvider client={client}>
           <Router>
             <Navbar />
             <Routes>
@@ -26,7 +33,7 @@ const App = () => {
             <Route path="*" element={<h1>Page not found</h1>} />
             </Routes>
           </Router>
-          </AppContext.Provider>
+          </QueryClientProvider>
           </div>
           )
   };
