@@ -3,7 +3,7 @@ import {useQuery} from '@tanstack/react-query';
 import Axios from 'axios'
 
 export const Home =() =>{
-    const {data,isLoading,refetch} = useQuery(["cat"], () =>{
+    const {data,isLoading,refetch} = useQuery(["unique_id"], () =>{
         return  Axios.get("https://catfact.ninja/fact").then((res)=> res.data);
     })
     if (isLoading) {
