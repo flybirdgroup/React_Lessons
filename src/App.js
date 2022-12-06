@@ -1,32 +1,18 @@
 import React from 'react';
 import './App.css';
 // import Axios from "axios"
-import {useState, createContext }from "react";
-import { Home } from './pages/Home';
-import { Contact } from './pages/Contact';
-import { Profile } from './pages/Profile';
-import { Navbar } from './pages/Navbar';
-import { BrowserRouter as Router,Route,Routes} from 'react-router-dom';
+// import {useState, createContext }from "react";
+import { Form } from './components/Form';
 // import {Text} from "./Utils"
 
 
-export const AppContext = createContext();
+// export const AppContext = createContext();
 
 const App = () => {
-  const [username, setUsername] = useState("Michael");
+  // const [username, setUsername] = useState("Michael");
 
   return (<div className='App'>
-          <AppContext.Provider value={{username, setUsername}}>
-          <Router>
-            <Navbar />
-            <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<h1>Page not found</h1>} />
-            </Routes>
-          </Router>
-          </AppContext.Provider>
+          <Form />
           </div>
           )
   };
