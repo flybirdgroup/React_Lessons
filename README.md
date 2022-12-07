@@ -2,7 +2,9 @@
 // a hook is a function to allow you to abstract logic & a hook can use life cycle and state
 // hook not for ui logic but return state logic
 
-
+# npm install @tanstack-react-query
+# when use useQuery, needs to <clientqueryProvider> upper level than the component
+# create costm hook with useQuery 
 
 # Getting Started with Create React App
 
