@@ -1,3 +1,9 @@
+// useName, highlevel, inside hook component
+// a hook is a function to allow you to abstract logic & a hook can use life cycle and state
+// hook not for ui logic but return state logic
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
