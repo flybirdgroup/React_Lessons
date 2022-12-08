@@ -1,19 +1,20 @@
-import React from 'react';
+// import React, { useState } from 'react';
 import './App.css';
 import { Cat } from './components/Cat';
+import { Count } from './components/Count';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 // import Axios from "axios"
 // import {useState }from "react";
 // import { Form } from './components/Form';
 // import {Text} from "./Utils"
-// import {useToogle} from "./useToggle"
+
 
 
 // export const AppContext = createContext();
 
 const App = () => {
   // const [isVisible, toggle] = useToogle(false);
-  // const [isVisible2, toggle2] = useToogle(false);
+  
   const client = new QueryClient(
     {
       defaultOptions: {
@@ -23,11 +24,16 @@ const App = () => {
       },
     }
   );
+  const visible = false ;
+
+  
 
   return (
   <div className='App'>
     <QueryClientProvider client={client}>
-          <Cat />
+          {visible && <Cat />}
+
+          {!visible && <Count />}
           </QueryClientProvider>
           </div>
           )
