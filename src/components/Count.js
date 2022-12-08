@@ -1,11 +1,11 @@
 import { useCount } from "../useCount";
 export const Count = ()=> {
-    const [data,changeValue] = useCount();
+    const [count,increase,decrease,restart] = useCount();
     return (
     <div>
-    <button onClick={()=>{changeValue("increase")}}>increase</button>
-    <button onClick={()=>{changeValue("decrease")}}>decrease</button>
-    <button onClick={()=>{changeValue("restart")}}>restart</button>
-    {data}
+    <button onClick={increase}>increase</button>
+    <button onClick={decrease}>decrease</button>
+    <button onClick={restart}>restart</button>
+    {count}
     </div>)
 };
