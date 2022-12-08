@@ -8,6 +8,13 @@
 
 # Getting Started with Create React App
 
+# this lession purpose:
+1. create a custom hook
+2. use useQuery into a custom hook
+3. abstract the fetching data logci and refetching data logic into custom hook
+4. component will only needs to use the hook to do the funtions
+5. could not use function instead of hook because function could not use useQuery and other hooks
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
