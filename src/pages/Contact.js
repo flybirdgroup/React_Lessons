@@ -1,8 +1,10 @@
-import React from "react"
-import { useContext } from "react";
-import { AppContext } from "../App";
+// import React from "react"
+// import { useContext } from "react";
+// import { AppContext } from "../App";
+import { useDispatch,useSelector } from "react-redux";
 
 export const Contact =() =>{
-    const {username} = useContext(AppContext)
-    return <h1>This is the Contact page and user is {username}</h1>
+    // const {username} = useContext(AppContext)
+    const username = useSelector((state)=>state.user.value.username)
+    return <h1>This is {username}the Contact page</h1>
 }

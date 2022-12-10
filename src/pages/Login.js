@@ -1,14 +1,21 @@
 // import React from "react"
-import { useContext } from "react";
-import { AppContext } from "../App";
-import { ChangeProfile } from "../components/ChangeProfile";
+import {useState} from "react";
+import {login,logout} from "../store";
+import { useDispatch,useSelector } from "react-redux";
 
-export const Profile =() =>{
-    const {username} = useContext(AppContext);
+export const Login = ()=>{
+    const [newUsername, setNewUsername] = useState("");
+    const dispatch = useDispatch();
+    const username = useSelector((state)=>state.user.value.username)
     return (
-    <div>
-        PROFILE, user is:{username}
-        <ChangeProfile />
-        </div>
-    );
-};
+        <h1>
+            This {username} is the login Page
+            <input onChange={(e)=>{
+                setNewUsername(e.target.value);
+            }}
+            />
+            <button onClick={() => dispatch(login({username:newUsername}))}> Submit Login </button>
+            <button onClick={() => dispatch(logout({username:newUsername}))}> Logout </button>
+        </h1>
+    )
+}
