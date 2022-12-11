@@ -20,6 +20,8 @@ You will also see any lint errors in the console.
 npm install react-router-dom
 npm install firebase
 npm install react-firebase-hooks
+npm install react-hook-form yup @hookform/resolvers
+
 
 ````
 

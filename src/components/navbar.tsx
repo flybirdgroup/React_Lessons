@@ -12,13 +12,13 @@ export const Navbar = () => {
     <div className='navbar'>
         <div className='links'>
         <Link to='/'> Home </Link>
-        <Link to='/login'> Login </Link>
+        {!user ? <Link to='/login'> Login </Link> : <Link to='/createpost'> Create Post </Link>}
         </div>
         {user && (
         <>
         <div className='user'>
         <p>{user?.displayName} </p>
-        <img src={user?.photoURL || ""} width="80" height="80"/>
+        <img src={user?.photoURL || ""} width="60" height="60"/>
         <button onClick={signUserOut}> Log Out</button>
         </div>
         </>)
